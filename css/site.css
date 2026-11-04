@@ -213,3 +213,24 @@ button:focus-visible {
     transition: none;
   }
 }
+
+/* A link that looks like a button, for example "Back to the home page". */
+.panel .button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #14533f;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(4, 28, 20, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.panel .button:hover,
+.panel .button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(4, 28, 20, 0.45);
+}

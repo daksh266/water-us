@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found | Water Us</title>
+  <meta name="description" content="That page does not exist. Head back to the home page.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    GitHub Pages shows this page at the address that was not found, and that address can be
+    deeper than the site's own pages. This makes every link and file below start from the
+    top level of the site, so the styles still load and the links still work.
+  -->
+  <script>
+    (function () {
+      var parts = location.pathname.split('/');
+      var onProjectSite = location.hostname.endsWith('.github.io') && parts[1];
+      var base = document.createElement('base');
+      base.href = onProjectSite ? '/' + parts[1] + '/' : '/';
+      document.head.prepend(base);
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/pages/not-found.js"></script>
+</head>
+<body>
+  <!-- The backdrop, the sun, and the falling rain. They stay behind the page. -->
+  <div class="scene is-dimmed">
+    <img class="backdrop" src="images/hero.svg" alt="">
+    <div class="scrim"></div>
+    <div class="sun">
+      <div class="rays a"></div>
+      <div class="rays b"></div>
+      <div class="halo"></div>
+      <div class="core"></div>
+    </div>
+    <div class="rain-layer" id="rain-layer"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">💧</span><span>Water Us</span></a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="care.html">Care guide</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="text-page">
+    <div class="panel">
+      <h1>Page not found</h1>
+      <p class="lead">That page does not exist. It may have moved, or the address may have a typo.</p>
+      <p><a class="button" href="index.html">Back to the home page</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Water Us is a practice project for learning GitHub. Care notes are general guidance, not professional advice.</p>
+  </footer>
+</body>
+</html>
