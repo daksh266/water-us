@@ -35,6 +35,19 @@ flowchart LR
     M -. closes .-> I
 ```
 
+## Site map
+
+```mermaid
+flowchart TB
+    H[index.html<br>Home] --> P[plants.html<br>Plants]
+    H --> C[care.html<br>Care guide]
+    H --> A[about.html<br>About]
+    P -. uses .-> D[js/features/plants/<br>data, rules, and saved dates]
+    C -. uses .-> D
+```
+
+Every page is styled by `css/styles.css`, and every page shows the same leafy backdrop with the sun and the falling rain.
+
 ## Care guide
 
 The care guide is the source of truth for how often each plant needs water.
