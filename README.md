@@ -3,11 +3,9 @@
 </p>
 
 <p align="center">
-  A small website that tells you which houseplants are thirsty.<br>
-  Plain HTML, CSS, and JavaScript. Nothing to install and nothing to build.
+  A simple website that tells you which houseplants need watering.<br>
+  Built with plain HTML, CSS, and JavaScript.
 </p>
-
-This is the practice project for the course *AI-Assisted GitHub Fundamentals*. You will change it the way a team changes any project: from an issue, through a branch and a pull request, to a merge, with GitHub Copilot helping at each step.
 
 ## Preview
 
