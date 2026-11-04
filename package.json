@@ -1,0 +1,9 @@
+{
+  "name": "plant-pals",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-plants.mjs",
+    "test": "node --test"
+  }
+}

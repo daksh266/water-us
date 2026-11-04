@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About | Water Us</title>
+  <meta name="description" content="What Water Us is, how it decides a plant is thirsty, and where your progress is kept.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/pages/about.js"></script>
+</head>
+<body>
+  <!-- The backdrop, the sun, and the falling rain. They stay behind the page. -->
+  <div class="scene is-dimmed">
+    <img class="backdrop" src="images/hero.svg" alt="">
+    <div class="scrim"></div>
+    <div class="sun">
+      <div class="rays a"></div>
+      <div class="rays b"></div>
+      <div class="halo"></div>
+      <div class="core"></div>
+    </div>
+    <div class="rain-layer" id="rain-layer"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">💧</span><span>Water Us</span></a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="care.html">Care guide</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="text-page">
+    <div class="panel">
+      <h1>About Water Us</h1>
+      <p class="lead">
+        Water Us is a small practice project for learning GitHub. It is also a handy way to
+        remember to water your plants.
+      </p>
+
+      <h2>How a plant becomes thirsty</h2>
+      <p>
+        Every plant has a watering interval. Once it has gone that many days without water, it is
+        thirsty. Press <strong>Water now</strong> and the count starts again from today.
+      </p>
+
+      <h2>Where your progress is kept</h2>
+      <p>
+        The day you last watered each plant is saved in your own browser, so plants get thirsty as
+        real days pass. Nothing is sent anywhere. If you clear your browser data, or press
+        <strong>Reset progress</strong> on the Plants page, every plant goes back to where it started.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Water Us is a practice project for learning GitHub. Care notes are general guidance, not professional advice.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+:root {
+  --font-base: 'Apercu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Suisse', 'Apercu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: #0a2a22;
+  color: #ffffff;
+}
+
+h1,
+h2 {
+  font-family: var(--font-accent);
+}

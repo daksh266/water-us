@@ -1,0 +1,184 @@
+/* A golden-hour sun: a warm core and halo that breathe, and two sets of rays that sweep slowly. */
+.sun {
+  --sun-x: 80%;
+  --sun-y: 15%;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rays,
+.halo,
+.core {
+  position: absolute;
+  left: var(--sun-x);
+  top: var(--sun-y);
+  translate: -50% -50%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+.rays {
+  width: 220vmax;
+  height: 220vmax;
+  mask-image: radial-gradient(circle closest-side, #000 3%, rgba(0, 0, 0, 0.55) 28%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 3%, rgba(0, 0, 0, 0.55) 28%, transparent 72%);
+}
+
+.rays.a {
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 238, 176, 0) 9deg,
+    rgba(255, 238, 176, 0.55) 14deg,
+    rgba(255, 238, 176, 0) 19deg,
+    rgba(255, 238, 176, 0) 38deg,
+    rgba(255, 238, 176, 0.35) 41deg,
+    rgba(255, 238, 176, 0) 44deg,
+    rgba(255, 238, 176, 0) 56.5deg,
+    rgba(255, 238, 176, 0.5) 63deg,
+    rgba(255, 238, 176, 0) 69.5deg,
+    rgba(255, 238, 176, 0) 93deg,
+    rgba(255, 238, 176, 0.4) 97deg,
+    rgba(255, 238, 176, 0) 101deg,
+    rgba(255, 238, 176, 0) 116.5deg,
+    rgba(255, 238, 176, 0.55) 124deg,
+    rgba(255, 238, 176, 0) 131.5deg,
+    rgba(255, 238, 176, 0) 147.5deg,
+    rgba(255, 238, 176, 0.32) 151deg,
+    rgba(255, 238, 176, 0) 154.5deg,
+    rgba(255, 238, 176, 0) 172deg,
+    rgba(255, 238, 176, 0.5) 178deg,
+    rgba(255, 238, 176, 0) 184deg,
+    rgba(255, 238, 176, 0) 204.5deg,
+    rgba(255, 238, 176, 0.38) 209deg,
+    rgba(255, 238, 176, 0) 213.5deg,
+    rgba(255, 238, 176, 0) 229deg,
+    rgba(255, 238, 176, 0.55) 236deg,
+    rgba(255, 238, 176, 0) 243deg,
+    rgba(255, 238, 176, 0) 263deg,
+    rgba(255, 238, 176, 0.3) 266deg,
+    rgba(255, 238, 176, 0) 269deg,
+    rgba(255, 238, 176, 0) 285.5deg,
+    rgba(255, 238, 176, 0.5) 291deg,
+    rgba(255, 238, 176, 0) 296.5deg,
+    rgba(255, 238, 176, 0) 318deg,
+    rgba(255, 238, 176, 0.4) 322deg,
+    rgba(255, 238, 176, 0) 326deg,
+    rgba(255, 238, 176, 0) 342.5deg,
+    rgba(255, 238, 176, 0.5) 349deg,
+    rgba(255, 238, 176, 0) 355.5deg
+  );
+  opacity: 0.7;
+  animation: sweep 150s linear infinite;
+}
+
+.rays.b {
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 226, 150, 0) 1.5deg,
+    rgba(255, 226, 150, 0.35) 5deg,
+    rgba(255, 226, 150, 0) 8.5deg,
+    rgba(255, 226, 150, 0) 23deg,
+    rgba(255, 226, 150, 0.45) 29deg,
+    rgba(255, 226, 150, 0) 35deg,
+    rgba(255, 226, 150, 0) 49deg,
+    rgba(255, 226, 150, 0.3) 52deg,
+    rgba(255, 226, 150, 0) 55deg,
+    rgba(255, 226, 150, 0) 74deg,
+    rgba(255, 226, 150, 0.5) 81deg,
+    rgba(255, 226, 150, 0) 88deg,
+    rgba(255, 226, 150, 0) 104deg,
+    rgba(255, 226, 150, 0.35) 108deg,
+    rgba(255, 226, 150, 0) 112deg,
+    rgba(255, 226, 150, 0) 131.5deg,
+    rgba(255, 226, 150, 0.45) 137deg,
+    rgba(255, 226, 150, 0) 142.5deg,
+    rgba(255, 226, 150, 0) 160deg,
+    rgba(255, 226, 150, 0.3) 163deg,
+    rgba(255, 226, 150, 0) 166deg,
+    rgba(255, 226, 150, 0) 186.5deg,
+    rgba(255, 226, 150, 0.5) 193deg,
+    rgba(255, 226, 150, 0) 199.5deg,
+    rgba(255, 226, 150, 0) 218.5deg,
+    rgba(255, 226, 150, 0.35) 222deg,
+    rgba(255, 226, 150, 0) 225.5deg,
+    rgba(255, 226, 150, 0) 245deg,
+    rgba(255, 226, 150, 0.45) 251deg,
+    rgba(255, 226, 150, 0) 257deg,
+    rgba(255, 226, 150, 0) 275deg,
+    rgba(255, 226, 150, 0.35) 279deg,
+    rgba(255, 226, 150, 0) 283deg,
+    rgba(255, 226, 150, 0) 300deg,
+    rgba(255, 226, 150, 0.5) 307deg,
+    rgba(255, 226, 150, 0) 314deg,
+    rgba(255, 226, 150, 0) 332.5deg,
+    rgba(255, 226, 150, 0.3) 336deg,
+    rgba(255, 226, 150, 0) 339.5deg
+  );
+  opacity: 0.8;
+  animation: sweep 220s linear infinite reverse, shimmer 9s ease-in-out infinite alternate;
+}
+
+.halo {
+  width: 90vmin;
+  height: 90vmin;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 236, 160, 0.9) 0%,
+    rgba(255, 208, 112, 0.5) 24%,
+    rgba(255, 190, 90, 0.16) 52%,
+    rgba(255, 190, 90, 0) 100%
+  );
+  animation: breathe 7s ease-in-out infinite alternate;
+}
+
+.core {
+  width: clamp(80px, 10vmin, 130px);
+  height: clamp(80px, 10vmin, 130px);
+  background: radial-gradient(
+    circle closest-side,
+    #fffef6 0%,
+    #fff4c6 45%,
+    #ffd86b 78%,
+    rgba(255, 216, 107, 0) 100%
+  );
+  animation: breathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes sweep {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes breathe {
+  from {
+    scale: 0.94;
+    opacity: 0.82;
+  }
+  to {
+    scale: 1.08;
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rays,
+  .halo,
+  .core {
+    animation: none;
+  }
+}

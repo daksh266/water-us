@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plants | Water Us</title>
+  <meta name="description" content="See which houseplants are thirsty and water them with one click.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/pages/plants.js"></script>
+</head>
+<body>
+  <!-- The backdrop, the sun, and the falling rain. They stay behind the page. -->
+  <div class="scene is-dimmed">
+    <img class="backdrop" src="images/hero.svg" alt="">
+    <div class="scrim"></div>
+    <div class="sun">
+      <div class="rays a"></div>
+      <div class="rays b"></div>
+      <div class="halo"></div>
+      <div class="core"></div>
+    </div>
+    <div class="rain-layer" id="rain-layer"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">💧</span><span>Water Us</span></a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html" aria-current="page">Plants</a></li>
+          <li><a href="care.html">Care guide</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="plants">
+    <div class="page">
+      <h1 class="sr-only">Your plants</h1>
+      <section class="grid" id="plant-list" aria-label="Your plants"></section>
+      <button type="button" class="reset" id="reset">Reset progress</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Water Us is a practice project for learning GitHub. Care notes are general guidance, not professional advice.</p>
+  </footer>
+</body>
+</html>

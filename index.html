@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Water Us | Keep your houseplants happy</title>
+  <meta name="description" content="Keep track of which houseplants are thirsty, give them a splash, and watch them perk up.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/pages/home.js"></script>
+</head>
+<body>
+  <!-- The backdrop, the sun, and the falling rain. They stay behind the page. -->
+  <div class="scene">
+    <img class="backdrop" src="images/hero.svg" alt="">
+    <div class="scrim"></div>
+    <div class="sun">
+      <div class="rays a"></div>
+      <div class="rays b"></div>
+      <div class="halo"></div>
+      <div class="core"></div>
+    </div>
+    <div class="rain-layer" id="rain-layer"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">💧</span><span>Water Us</span></a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="care.html">Care guide</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="home">
+    <section class="hero" id="hero">
+      <div class="content">
+        <h1>Water Us</h1>
+        <p>
+          Your houseplants can't ask for water. Keep track of which ones are thirsty, give them a
+          splash, and watch them perk up.
+        </p>
+        <a class="button" href="plants.html">Get started</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Water Us is a practice project for learning GitHub. Care notes are general guidance, not professional advice.</p>
+  </footer>
+</body>
+</html>

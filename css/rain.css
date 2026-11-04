@@ -1,0 +1,39 @@
+.rain-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.drop {
+  position: absolute;
+  top: -48px;
+  left: var(--x);
+  opacity: var(--alpha);
+  animation: fall var(--dur) linear var(--delay) infinite;
+}
+
+.drop i {
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+  background: radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.95), rgba(124, 199, 242, 0.7) 70%);
+}
+
+@keyframes fall {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(var(--drift), calc(100vh + 96px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop {
+    animation: none;
+    display: none;
+  }
+}

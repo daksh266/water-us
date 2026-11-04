@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Care guide | Water Us</title>
+  <meta name="description" content="How often each plant needs water, and when the next watering is due.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/pages/care.js"></script>
+</head>
+<body>
+  <!-- The backdrop, the sun, and the falling rain. They stay behind the page. -->
+  <div class="scene is-dimmed">
+    <img class="backdrop" src="images/hero.svg" alt="">
+    <div class="scrim"></div>
+    <div class="sun">
+      <div class="rays a"></div>
+      <div class="rays b"></div>
+      <div class="halo"></div>
+      <div class="core"></div>
+    </div>
+    <div class="rain-layer" id="rain-layer"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">💧</span><span>Water Us</span></a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plants.html">Plants</a></li>
+          <li><a href="care.html" aria-current="page">Care guide</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="text-page">
+    <div class="panel">
+      <h1>Care guide</h1>
+      <p class="lead">How often each plant needs water, and when its next watering is due.</p>
+
+      <table>
+        <caption class="sr-only">Watering schedule for each plant</caption>
+        <thead>
+          <tr>
+            <th scope="col">Plant</th>
+            <th scope="col">Water every</th>
+            <th scope="col">Next watering</th>
+          </tr>
+        </thead>
+        <tbody id="care-table-body"></tbody>
+      </table>
+
+      <h2>A few tips</h2>
+      <ul>
+        <li>Check the soil first. Most houseplants prefer to dry out a little between waterings.</li>
+        <li>Water slowly until a little drains from the bottom, then empty the saucer.</li>
+        <li>Plants need less water in winter, when they grow more slowly.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Water Us is a practice project for learning GitHub. Care notes are general guidance, not professional advice.</p>
+  </footer>
+</body>
+</html>

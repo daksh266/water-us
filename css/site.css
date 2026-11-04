@@ -1,0 +1,215 @@
+/* Shared by every page: the page frame, the header and navigation, the footer, and text panels. */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hidden on screen, still read out by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  background: #ffffff;
+  color: #14533f;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #ffd86b;
+  outline-offset: 3px;
+}
+
+.site-header,
+.site-footer {
+  background: rgba(5, 30, 22, 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  width: min(1040px, 100% - 32px);
+  margin-inline: auto;
+  padding-block: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav-list a:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.nav-list a[aria-current='page'] {
+  background: #ffffff;
+  color: #14533f;
+  font-weight: 700;
+}
+
+.site-footer {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* Pages that are mostly text: the care guide and the about page. */
+.text-page {
+  padding: 40px 16px;
+  animation: fade-in 0.7s ease both;
+}
+
+.panel {
+  width: min(760px, 100%);
+  margin-inline: auto;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 22px;
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 18px 40px rgba(2, 22, 15, 0.35);
+}
+
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.panel h2 {
+  margin: 28px 0 8px;
+  font-size: 1.15rem;
+}
+
+.panel p,
+.panel li {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.panel .lead {
+  margin: 0 0 20px;
+  font-size: 1.1rem;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.panel table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.panel th,
+.panel td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.panel th {
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.panel td.thirsty-now {
+  color: #ffd37a;
+  font-weight: 700;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-page,
+  .nav-list a {
+    animation: none;
+    transition: none;
+  }
+}

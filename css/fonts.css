@@ -1,0 +1,40 @@
+/* Codecademy brand fonts, loaded from Codecademy's own server (the same files its design system uses). */
+@font-face {
+  font-family: 'Apercu';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('https://www.codecademy.com/gamut/apercu-regular-pro.woff2') format('woff2'),
+    url('https://www.codecademy.com/gamut/apercu-regular-pro.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Apercu';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('https://www.codecademy.com/gamut/apercu-bold-pro.woff2') format('woff2'),
+    url('https://www.codecademy.com/gamut/apercu-bold-pro.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Suisse';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('https://www.codecademy.com/gamut/SuisseIntlMono-Regular-WebS.woff2') format('woff2'),
+    url('https://www.codecademy.com/gamut/SuisseIntlMono-Regular-WebS.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Suisse';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('https://www.codecademy.com/gamut/SuisseIntlMono-Bold-WebS.woff2') format('woff2'),
+    url('https://www.codecademy.com/gamut/SuisseIntlMono-Bold-WebS.woff') format('woff');
+}
