@@ -1,72 +1,71 @@
-# Water Us
+<p align="center">
+  <img src="images/logo.svg" alt="Water Us: keep your houseplants happy" width="560">
+</p>
 
-A small web app that tracks when your houseplants need water. Each plant has a card with a **Happy** or **Thirsty** badge, a water level, and a **Water now** button.
+<p align="center">
+  A small website that tells you which houseplants are thirsty.<br>
+  Plain HTML, CSS, and JavaScript. Nothing to install and nothing to build.
+</p>
 
-It is plain HTML, CSS, and JavaScript. There is nothing to install and nothing to build.
+This is the practice project for the course *AI-Assisted GitHub Fundamentals*. You will change it the way a team changes any project: from an issue, through a branch and a pull request, to a merge, with GitHub Copilot helping at each step.
 
-## Features
+## Preview
 
-- Four pages: Home, Plants, Care guide, and About, with the same header, navigation, and footer on each.
-- Real dates. Each plant remembers the day you last watered it, so it gets thirsty as days pass.
-- Your progress is saved in your own browser, and **Reset progress** puts every plant back to where it started.
-- A care guide that shows how often each plant needs water and when the next watering is due.
-- A skip link, page landmarks, and a layout that works on a phone.
+| Home | Plants | Care guide |
+|:-:|:-:|:-:|
+| <img src="images/preview-home.jpg" alt="The Home page, with a leafy background and a Get started button" width="290"> | <img src="images/preview-plants.jpg" alt="The Plants page, with a card for each plant" width="290"> | <img src="images/preview-care.jpg" alt="The Care guide page, with a table of watering schedules" width="290"> |
 
-This repository is the practice project for the course *AI-Assisted GitHub Fundamentals*. You will work on it the way a team works on any project: from an issue, through a branch and a pull request, to a merge, with GitHub Copilot helping at each step.
+Press **Water now** and the rain falls, the plant perks up, and the day is saved in your browser. Plants get thirsty again as real days pass.
 
 ## Get started
 
-1. **Fork this repository.** Untick **Copy the main branch only** so that you get every branch.
-2. **Turn on Issues in your fork.** In **Settings → General → Features**, tick **Issues**.
-3. **Turn on GitHub Pages** so you can see the app: go to **Settings → Pages**, set **Source** to **Deploy from a branch**, and choose the `main` branch and the `/ (root)` folder.
-4. Open the **Issues** tab and follow the course.
+1. **Fork this repository.** Untick **Copy the main branch only**, so that you get every branch.
+2. **Turn on Issues** in your fork: **Settings → General → Features → Issues**.
+3. **Turn on GitHub Pages** to see your changes live: **Settings → Pages**, then set **Source** to **Deploy from a branch** and choose `main` and `/ (root)`.
+4. Follow along with the course.
 
-## How the app decides a plant is thirsty
+> [!IMPORTANT]
+> When you open a pull request, set the **base repository** to **your fork**, not to this repository.
 
-A plant is **Thirsty** when the number of days since it was last watered is the same as or more than its watering interval. Clicking **Water now** sets the last watered day to today.
+## How a change travels
 
-The list in `js/features/plants/data/plants.js` is where every plant starts. The first time you visit, a plant with `daysSinceWatered: 15` counts as watered 15 days before that visit. After that, the app remembers the real date for each plant.
+```mermaid
+flowchart LR
+    I[Issue] --> B[Branch] --> C[Commit] --> P[Pull request] --> R[Review] --> M[Merge]
+    M -. closes .-> I
+```
 
 ## Care guide
 
+The care guide is the source of truth for how often each plant needs water.
+
 | Plant | Water every |
-| --- | --- |
+|-------|-------------|
 | Spike the Cactus | 14 days |
 | Fernando the Fern | 3 days |
 | Basil | 2 days |
 | Aloe Vera | 10 days |
+| Monstera | 7 days |
 
-## Project layout
+## What is inside
 
-```
-index.html                           the Home page
-plants.html, care.html, about.html   the other three pages
-css/                                 the styles, one file for each part of the site
-images/                              the background artwork
-js/
-├── pages/                           one small script for each page
-├── features/
-│   ├── home/                        the Home page hero
-│   ├── care/                        the care guide table
-│   └── plants/
-│       ├── models/                  what a plant is
-│       ├── data/plants.js           the list of plants
-│       ├── rules/plant-care.js      when a plant is thirsty, and the wording on the cards
-│       ├── state/                   the plants, watering, and saving the dates in the browser
-│       └── components/              the plant list and the plant card
-└── shared/                          the date helpers, the scene, and the falling rain
-tests/                               tests for the dates, the rules, and the saving
-scripts/check-plants.mjs             a check you can run on your computer with Node
-```
+<details>
+<summary>Open the repository tour</summary>
 
-## Try it on your computer
+| Path | What it contains |
+|------|------------------|
+| [`index.html`](index.html), [`plants.html`](plants.html), [`care.html`](care.html), [`about.html`](about.html) | The four pages |
+| [`css/`](css) | The styles, one file for each part of the site |
+| [`js/`](js) | The code. Plants, their rules, and saving the dates are in `js/features/plants/`. The list of plants is in [`plants.js`](js/features/plants/data/plants.js) |
+| [`images/`](images) | The banner, the background artwork, and the preview pictures above |
+| [`favicon.svg`](favicon.svg) | The icon in the browser tab |
+| [`tests/`](tests) and [`scripts/`](scripts) | Optional checks you can run with Node: `node --test` and `node scripts/check-plants.mjs` |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | How changes are made in this project |
 
-The pages use JavaScript modules, which browsers only load from a web server. If you want to preview the app locally, run this in the project folder and open http://localhost:8000:
+To preview the site on your own computer, run `python3 -m http.server 8000` in the project folder and open http://localhost:8000. The pages use JavaScript modules, which browsers only load from a web server.
 
-```
-python3 -m http.server 8000
-```
+</details>
 
-## Contributing
+## License
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Released under the [MIT License](LICENSE).
