@@ -35,6 +35,7 @@ The list in `js/features/plants/data/plants.js` is where every plant starts. The
 | Fernando the Fern | 3 days |
 | Basil | 2 days |
 | Aloe Vera | 10 days |
+| Monstera | 7 days |
 
 ## Project layout
 
