@@ -1,7 +1,10 @@
 {
-  "name": "plant-pals",
+  "name": "water-us",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "check": "node scripts/check-plants.mjs",
     "test": "node --test"

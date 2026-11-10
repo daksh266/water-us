@@ -14,4 +14,4 @@ Every change starts with an issue and ends with a merged pull request.
 
 - Keep pull requests small and about one thing.
 - Match the existing plant entries in `js/features/plants/data/plants.js`.
-- Watering intervals must match the care guide in the README.
+- Watering intervals must match the Care guide table in the README. The Care guide page on the site is built from `plants.js`, so it only shows what the data says.

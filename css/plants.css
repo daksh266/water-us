@@ -1,4 +1,4 @@
-/* The Plants page: the cards in the middle, and the reset button under them. */
+/* The Plants page: the cards in the middle, and the reset button under them. (The fade-in animation is in site.css.) */
 .plants .page {
   flex: 1;
   display: flex;
@@ -298,14 +298,12 @@
     animation: none;
   }
 
+  .plants .page {
+    animation: none;
+  }
+
   .fill,
   .card {
     transition: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .plants .page {
-    animation: none;
   }
 }

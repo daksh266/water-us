@@ -48,7 +48,7 @@ Every page is styled by `css/styles.css`, and every page shows the same leafy ba
 
 ## Care guide
 
-The care guide is the source of truth for how often each plant needs water.
+This table is the source of truth for how often each plant needs water. (The Care guide page on the site is built from the plant list, so it only shows what the list says.)
 
 | Plant | Water every |
 |-------|-------------|
