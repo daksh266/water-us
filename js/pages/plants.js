@@ -6,7 +6,7 @@ import { initScene } from '../shared/ui/scene.js';
 const store = createPlantStore();
 
 initScene();
-initPlantList(document.getElementById('plant-list'), store);
+initPlantList(document.getElementById('plant-list'), store, document.getElementById('status'));
 keepFresh(store);
 
 document.getElementById('reset').addEventListener('click', () => {

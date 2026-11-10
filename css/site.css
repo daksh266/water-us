@@ -201,6 +201,18 @@ button:focus-visible {
   font-weight: 700;
 }
 
+/* Shown only when JavaScript is off, since the plants and the schedule are built by script. */
+.notice {
+  max-width: 40ch;
+  margin: 16px auto;
+  padding: 14px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  text-align: center;
+  line-height: 1.5;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
