@@ -11,16 +11,31 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const dataFile = 'js/features/plants/data/plants.js';
 const errors = [];
 
-// Prints an error that GitHub also shows on the file in the pull request.
+// Prints "file:line  message". Inside GitHub Actions it prints an annotation instead, which GitHub
+// shows on the file in the pull request.
 function fail(file, line, message) {
   errors.push(message);
-  console.error(`::error file=${file},line=${line}::${message}`);
+  console.error(process.env.GITHUB_ACTIONS
+    ? `::error file=${file},line=${line}::${message}`
+    : `${file}:${line}  ${message}`);
 }
 
-function lineOf(file, text) {
-  const index = readFileSync(join(root, file), 'utf8').split('\n').findIndex((l) => l.includes(text));
+// The first line that contains any of the texts, or line 1 if none does.
+function lineOf(file, texts) {
+  const lines = readFileSync(join(root, file), 'utf8').split('\n');
+  const index = lines.findIndex((l) => texts.some((text) => l.includes(text)));
   return index === -1 ? 1 : index + 1;
 }
+
+// Values the app can show without breaking, beyond having the right type. A watering interval of
+// 0 would divide by zero and show "NaN%".
+const VALUE_RULES = {
+  id: [Number.isInteger, 'a whole number'],
+  wateringEveryDays: [(value) => Number.isInteger(value) && value >= 1, 'a whole number of days, 1 or more'],
+  daysSinceWatered: [(value) => Number.isInteger(value) && value >= 0, 'a whole number of days, 0 or more'],
+  name: [(value) => value.trim() !== '', 'filled in'],
+  emoji: [(value) => value.trim() !== '', 'filled in'],
+};
 
 // How many single-letter edits it takes to turn a into b.
 function distance(a, b) {
@@ -67,7 +82,7 @@ try {
 const seen = new Set();
 for (const plant of plants) {
   const label = `"${plant.name ?? 'a plant'}"`;
-  const line = lineOf(dataFile, `name: '${plant.name}'`);
+  const line = lineOf(dataFile, [`name: '${plant.name}'`, `name: "${plant.name}"`, `name: \`${plant.name}\``]);
 
   for (const key of Object.keys(plant)) {
     if (key in PLANT_FIELDS) continue;
@@ -77,6 +92,9 @@ for (const plant of plants) {
   for (const [key, type] of Object.entries(PLANT_FIELDS)) {
     if (!(key in plant)) fail(dataFile, line, `${label} is missing "${key}".`);
     else if (typeof plant[key] !== type) fail(dataFile, line, `${label} has "${key}" set to a ${typeof plant[key]}, but it must be a ${type}.`);
+    else if (VALUE_RULES[key] && !VALUE_RULES[key][0](plant[key])) {
+      fail(dataFile, line, `${label} has "${key}" set to ${JSON.stringify(plant[key])}, but it must be ${VALUE_RULES[key][1]}.`);
+    }
   }
   if (seen.has(plant.id)) fail(dataFile, line, `${label} reuses the id ${plant.id}. Every plant needs its own id.`);
   seen.add(plant.id);
