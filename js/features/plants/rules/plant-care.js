@@ -14,8 +14,13 @@ export function daysUntilDue(plant) {
   return plant.wateringEveryDays - plant.daysSinceWatered;
 }
 
+/** How often the plant needs water, for example "every 3 days". */
+export function describeEvery(plant) {
+  return plant.wateringEveryDays === 1 ? 'every day' : `every ${plant.wateringEveryDays} days`;
+}
+
 export function describeInterval(plant) {
-  return plant.wateringEveryDays === 1 ? 'Water every day' : `Water every ${plant.wateringEveryDays} days`;
+  return `Water ${describeEvery(plant)}`;
 }
 
 export function describeLastWatered(plant) {

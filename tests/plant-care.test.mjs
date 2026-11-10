@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import {
   describeDue,
+  describeEvery,
   describeInterval,
   describeLastWatered,
   hydrationPercent,
@@ -29,6 +30,8 @@ test('the wording reads naturally for 0, 1, and many days', () => {
   assert.equal(describeLastWatered(plant(3, 5)), 'Last watered 5 days ago');
   assert.equal(describeInterval(plant(1, 0)), 'Water every day');
   assert.equal(describeInterval(plant(7, 0)), 'Water every 7 days');
+  assert.equal(describeEvery(plant(1, 0)), 'every day');
+  assert.equal(describeEvery(plant(7, 0)), 'every 7 days');
 });
 
 test('describeDue says when the next watering is', () => {

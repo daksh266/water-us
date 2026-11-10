@@ -77,6 +77,38 @@ test('refresh works the days out again after midnight', () => {
   assert.deepEqual(days(store), [16, 2]);
 });
 
+test('watering in one tab does not undo watering in another tab', () => {
+  mock.timers.enable({ apis: ['setTimeout'] });
+  const storage = fakeStorage();
+  const day = clock(2026, 11, 3);
+  const tabA = createPlantStore({ seed: SEED, storage, now: day.now });
+  const tabB = createPlantStore({ seed: SEED, storage, now: day.now });
+
+  tabA.water(1);
+  mock.timers.tick(2000);
+  tabB.water(2);
+  mock.timers.tick(2000);
+  mock.timers.reset();
+
+  const later = createPlantStore({ seed: SEED, storage, now: day.now });
+  assert.deepEqual(days(later), [0, 0]);
+});
+
+test('refresh picks up a plant that another tab watered', () => {
+  mock.timers.enable({ apis: ['setTimeout'] });
+  const storage = fakeStorage();
+  const day = clock(2026, 11, 3);
+  const tabA = createPlantStore({ seed: SEED, storage, now: day.now });
+  const tabB = createPlantStore({ seed: SEED, storage, now: day.now });
+
+  tabA.water(1);
+  mock.timers.tick(2000);
+  mock.timers.reset();
+  assert.deepEqual(days(tabB), [15, 1]);
+  tabB.refresh();
+  assert.deepEqual(days(tabB), [0, 1]);
+});
+
 test('reset puts every plant back where it started', () => {
   mock.timers.enable({ apis: ['setTimeout'] });
   const store = createPlantStore({ seed: SEED, storage: fakeStorage(), now: clock(2026, 11, 3).now });

@@ -24,7 +24,8 @@ export function createPlantStore({
   let state = { plants: [], wateringId: null };
   const listeners = new Set();
 
-  // Plants without a saved date start from the numbers in the data file.
+  // Reads the saved dates again, so a change made in another tab is not lost. Plants without a
+  // saved date start from the numbers in the data file.
   function fillMissingDates() {
     const saved = loadLastWatered(storage);
     const today = toDateKey(now());
@@ -69,6 +70,7 @@ export function createPlantStore({
       }
       update({ wateringId: id });
       setTimeout(() => {
+        fillMissingDates();
         lastWatered[id] = toDateKey(now());
         saveLastWatered(storage, lastWatered);
         update({ plants: currentPlants() });
@@ -76,8 +78,9 @@ export function createPlantStore({
       setTimeout(() => update({ wateringId: null }), WATERING_DURATION_MS);
     },
 
-    /** Works the days out again, for example when the tab is opened the next morning. */
+    /** Works the days out again, for example when the tab is opened the next morning or another tab watered a plant. */
     refresh() {
+      fillMissingDates();
       update({ plants: currentPlants() });
     },
 
