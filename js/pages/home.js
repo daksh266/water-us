@@ -1,5 +1,7 @@
-import { initHome } from '../features/home/home.js';
+import { initChapters } from '../features/home/chapters.js';
 import { initScene } from '../shared/ui/scene.js';
 
+const hero = document.getElementById('hero');
+
 initScene();
-initHome(document.getElementById('hero'));
+initChapters(hero, document.querySelector('.scene'));

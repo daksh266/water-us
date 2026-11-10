@@ -1,0 +1,64 @@
+/* Small leaves and faint gusts of wind that sweep across the backdrop from left to right. */
+.wind-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gust {
+  position: absolute;
+  left: 0;
+  top: var(--y);
+  animation: blow var(--dur) linear var(--delay) infinite;
+}
+
+/* JavaScript moves each leaf across the screen along its own wandering path. */
+.leaf {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: var(--alpha);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.leaf .blade {
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: calc(var(--size) * 0.6);
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(135deg, var(--light), var(--dark));
+}
+
+/* The vein down the middle of the leaf. */
+.leaf .blade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, transparent 47%, rgba(255, 255, 255, 0.4) 49%, transparent 53%);
+}
+
+.gust {
+  width: var(--len);
+  height: 2px;
+  border-radius: 2px;
+  opacity: var(--alpha);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+@keyframes blow {
+  from {
+    transform: translate3d(-20vw, 0, 0);
+  }
+  to {
+    transform: translate3d(115vw, var(--rise), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wind-layer {
+    display: none;
+  }
+}

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/features/home/first-visit.js"></script>
   <script type="module" src="js/pages/home.js"></script>
 </head>
 <body>
@@ -20,6 +21,7 @@
       <div class="halo"></div>
       <div class="core"></div>
     </div>
+    <div class="wind-layer" id="wind-layer"></div>
     <div class="rain-layer" id="rain-layer"></div>
   </div>
 
@@ -46,8 +48,32 @@
           Your houseplants can't ask for water. Keep track of which ones are thirsty, give them a
           splash, and watch them perk up.
         </p>
-        <a class="button" href="plants.html">Get started</a>
       </div>
+      <a class="scroll-cue" href="#thirsty" aria-label="Scroll down to learn more">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+
+    <section class="chapter reveal" id="thirsty">
+      <h2>See who is thirsty.</h2>
+      <p>Every plant gets a card with a Happy or Thirsty badge. One look tells you which ones need water.</p>
+    </section>
+
+    <section class="chapter reveal">
+      <h2>Give it a splash.</h2>
+      <p>Press Water now. The rain falls, the plant perks up, and the day is saved.</p>
+    </section>
+
+    <section class="chapter reveal">
+      <h2>It remembers.</h2>
+      <p>Water Us saves the day you last watered each plant, right in your browser. Plants get thirsty again as real days pass. No account needed.</p>
+    </section>
+
+    <section class="chapter chapter-end reveal">
+      <h2>Start watering.</h2>
+      <a class="button" href="plants.html">Get started</a>
+      <p class="small">A practice project for the course <em>AI-Assisted GitHub Fundamentals</em>, built with plain HTML, CSS, and JavaScript. <a href="https://github.com/dakshdeepHERE/WaterMe">See the code on GitHub</a>.</p>
     </section>
   </main>
 

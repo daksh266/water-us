@@ -1,4 +1,9 @@
 /* Shared by every page: the page frame, the header and navigation, the footer, and text panels. */
+/* No rubber-band bounce at the top and bottom, which would pull the header away from the edge. */
+html {
+  overscroll-behavior: none;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -62,6 +67,9 @@ button:focus-visible {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
@@ -71,9 +79,7 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 8px 24px;
-  width: min(1040px, 100% - 32px);
-  margin-inline: auto;
-  padding-block: 12px;
+  padding: 12px clamp(16px, 4vw, 40px);
 }
 
 .brand {

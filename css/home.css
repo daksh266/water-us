@@ -1,18 +1,10 @@
-/* The Home page: a full-screen hero that leads to the plants. */
+/* The Home page: a full-screen hero, then one full-screen page at a time. */
 .home .hero {
-  flex: 1;
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding-top: var(--header-h, 56px);
   display: grid;
   place-items: center;
-  cursor: pointer;
-  transition:
-    transform 0.6s cubic-bezier(0.7, 0, 0.3, 1),
-    opacity 0.6s ease;
-}
-
-.home .hero.leaving {
-  transform: translateY(-40px);
-  opacity: 0;
-  pointer-events: none;
 }
 
 .hero .content {
@@ -32,13 +24,84 @@
 }
 
 .hero p {
-  margin: 0 0 28px;
+  margin: 0;
   font-size: 1.15rem;
   line-height: 1.5;
 }
 
-.hero .button {
+.hero {
+  position: relative;
+}
+
+/* A small nudge at the bottom of the first screen that says there is more below. */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 2px 12px rgba(4, 28, 20, 0.6);
+}
+
+.scroll-cue svg {
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+/* The rest of the page: one short idea at a time, with plenty of room around it. */
+.chapter {
+  min-height: 100svh;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 20px;
+  padding: var(--header-h, 56px) 24px 0;
+  text-align: center;
+  text-shadow: 0 2px 18px rgba(4, 28, 20, 0.55);
+}
+
+.chapter h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.chapter p {
+  max-width: 34ch;
+  margin: 0;
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* The last page leaves room for the footer, so that page and footer together fill one screen. */
+.chapter-end {
+  min-height: calc(100svh - var(--footer-h, 48px));
+}
+
+.chapter .button {
   display: inline-block;
+  margin-top: 8px;
   padding: 14px 34px;
   border-radius: 999px;
   background: #ffffff;
@@ -47,15 +110,55 @@
   text-decoration: none;
   text-shadow: none;
   box-shadow: 0 10px 30px rgba(4, 28, 20, 0.35);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-.hero .button:hover,
-.hero .button:focus-visible {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 14px 34px rgba(4, 28, 20, 0.45);
+.chapter p.small {
+  max-width: 48ch;
+  margin-top: 28px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.chapter p.small a {
+  color: #ffffff;
+}
+
+/* Each part fades up as it scrolls into view. Only when the script is running. */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+
+/*
+ * The home page is a stack of full-screen pages. The header floats over them (it takes no room
+ * in the layout), and scrolling snaps from one page to the next, one at a time.
+ */
+html:has(.home) {
+  scroll-padding-top: 0;
+  scroll-snap-type: y mandatory;
+}
+
+body:has(.home) .site-header {
+  margin-bottom: calc(-1 * var(--header-h, 56px));
+}
+
+.home .hero,
+.chapter {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 @keyframes rise {
@@ -72,8 +175,13 @@
 @media (prefers-reduced-motion: reduce) {
   .home .hero,
   .hero .content,
-  .hero .button {
+  .reveal-ready .reveal,
+  .scroll-cue svg {
     transition: none;
     animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
