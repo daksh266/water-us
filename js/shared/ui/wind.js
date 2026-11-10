@@ -145,7 +145,8 @@ export function initWind(layer) {
     const flight = createFlight(width, height);
     // Start each leaf partway through its flight so the screen is not empty when the page opens.
     flight.x = between(0, width);
-    for (let t = 0; t < between(0, 3); t += 0.05) {
+    const headStart = between(0, 3);
+    for (let t = 0; t < headStart; t += 0.05) {
       stepFlight(flight, 0.05);
     }
     const leaf = buildLeaf(flight);
