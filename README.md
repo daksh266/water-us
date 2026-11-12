@@ -20,7 +20,6 @@ Press **Water now** and the rain falls, the plant perks up, and the day is saved
 1. **Fork this repository.** Untick **Copy the main branch only**, so that you get every branch.
 2. **Turn on Issues** in your fork: **Settings → General → Features → Issues**.
 3. **Turn on GitHub Pages** to see your changes live: **Settings → Pages**, then set **Source** to **Deploy from a branch** and choose `main` and `/ (root)`.
-4. Follow along with the course.
 
 > [!IMPORTANT]
 > When you open a pull request, set the **base repository** to **your fork**, not to this repository.
